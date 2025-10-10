@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@heroui/react": "^2.8.5",
-    "framer-motion": "^12.23.22",
+    "@tailwindcss/vite": "^4.1.14",
+    "framer-motion": "^12.23.23",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -27,9 +29,11 @@
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
     "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.18",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0",
-    "vite": "^7.1.7"
+    "vite": "npm:rolldown-vite@7.1.14"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.1.14"
   }
 }

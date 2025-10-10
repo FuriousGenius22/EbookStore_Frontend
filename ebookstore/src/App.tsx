@@ -1,16 +1,14 @@
-import { type FC } from "react";
-
 import { Button } from "@heroui/react";
-interface Props {}
 
-const App: FC<Props> = () => {
-  return (
+const App = () => {
+  return(
     <div>
-      <h1 className="text-5xl font-light text-red-700">
-        I am the very first title
-      </h1>
-      <Button>23456789</Button>
+      <h1 className="text-5xl font-light text-red-800">Hello world!</h1>
+      <Button color = 'primary' variant="shadow">VeryFirstButton</Button>
     </div>
+    
   );
+   
 };
+
 export default App;
