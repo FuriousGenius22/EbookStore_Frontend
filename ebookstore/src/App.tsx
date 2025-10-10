@@ -1,14 +1,19 @@
-import { Button } from "@heroui/react";
 
+import { Routes, Route } from "react-router-dom";
+import Home from "./views/Home";
+import SignUp from "./views/SignUp";
+import Container from "./components/common/Container"
 const App = () => {
-  return(
-    <div>
-      <h1 className="text-5xl font-light text-red-800">Hello world!</h1>
-      <Button color = 'primary' variant="shadow">VeryFirstButton</Button>
-    </div>
+  return (
+    
+      <Container>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sign-up" element={<SignUp />} />
+        </Routes>
+      </Container>
     
   );
-   
 };
 
 export default App;
