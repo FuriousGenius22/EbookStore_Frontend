@@ -10,7 +10,7 @@ const Container:FC<Props> = ({children}) => {
   return (
     <div className='min-h-screen max-w-5xl mx-auto flex flex-col bg-gray-600' >
         <NavBar />
-        <div className="flex-1 bg-gray-400">{children}</div>
+        <div className="flex-1 flex flex-col bg-gray-400">{children}</div>
     </div>
   )
 }
