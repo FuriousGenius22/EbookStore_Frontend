@@ -12,6 +12,7 @@
   "dependencies": {
     "@heroui/react": "^2.8.5",
     "@tailwindcss/vite": "^4.1.14",
+    "axios": "^1.12.2",
     "dom": "^0.0.3",
     "framer-motion": "^12.23.23",
     "react": "^19.2.0",

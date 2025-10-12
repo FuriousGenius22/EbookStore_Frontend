@@ -2,24 +2,33 @@ import { Button } from "@heroui/react";
 import Book from "../svg/Book";
 import { Input } from "@heroui/react";
 import { useState } from "react";
-import {type FormEventHandler} from "react";
+import { type FormEventHandler } from "react";
+import client from "../api/client";
+interface Props {}
 
-interface Props{}
-
-const emailRegex = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$");
+const emailRegex = new RegExp(
+  "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"
+);
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [invalidForm, setInvalidForm] = useState(false);
 
-  const handleSubmit:FormEventHandler<HTMLFormElement> = (e) => {
-    
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     if (!emailRegex.test(email)) return setInvalidForm(true);
 
     setInvalidForm(false);
-    console.log(email);
-  }
+
+    try {
+      const res = await client.post("/auth/generate-link", {
+        email
+      });
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   return (
     <div className="flex-1 flex justify-center items-center">
@@ -29,18 +38,20 @@ const SignUp = () => {
           Books are the keys of countless doors. Sign up and unlock your
           potential
         </h1>
-        <form className="w-full space-y-6 mt-6" onSubmit={e => handleSubmit(e)}>
+        <form
+          className="w-full space-y-6 mt-6"
+          onSubmit={(e) => handleSubmit(e)}
+        >
           <Input
-            
             label="Email"
             placeholder="John Doe"
             variant="bordered"
             className="w-full"
             value={email}
-            isInvalid = {invalidForm}
+            isInvalid={invalidForm}
             errorMessage="Invalid Email"
-            onChange={({target}) => {
-              setEmail(target.value)
+            onChange={({ target }) => {
+              setEmail(target.value);
             }}
           ></Input>
           <Button
